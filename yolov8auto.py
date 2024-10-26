@@ -54,7 +54,7 @@ class AI_Auto:
                 class_ids = boxes.cls.cpu().numpy()
 
                 person_indices = np.where(class_ids == 0)[0]
-                high_confidence_indices = person_indices[confidences[person_indices] > 0.8]
+                high_confidence_indices = person_indices[confidences[person_indices] > 0.8]  # 置信度0.8以上
                 if high_confidence_indices.size > 0:
                     highest_confidence_index = high_confidence_indices[np.argmax(confidences[high_confidence_indices])]
                     highest_confidence_box = boxes_data[highest_confidence_index]
